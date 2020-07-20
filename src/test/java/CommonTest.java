@@ -11,19 +11,20 @@ public class CommonTest extends WebDriverClass {
     @Before
     public void login() throws InterruptedException {
         driver.get("https://qa-sandbox.apps.htec.rs/login");
-        WebElement email = getDriver().findElement(By.cssSelector("input[type='email']"));
-        WebElement password = getDriver().findElement(By.cssSelector("input[type='password']"));
-        WebElement submit = getDriver().findElement(By.cssSelector("button[type='submit']"));
-        email.sendKeys(EMAIL);
-        password.sendKeys(PASSWORD);
-        submit.click();
+        WebElement emailWebElement = driver.findElement(By.cssSelector("input[type='email']"));
+        emailWebElement.sendKeys(EMAIL);
+        WebElement passwordWebElement = driver.findElement(By.cssSelector("input[type='password']"));
+        passwordWebElement.sendKeys(PASSWORD);
+        WebElement submitWebElement = driver.findElement(By.cssSelector("button[type='submit']"));
+        submitWebElement.click();
         Thread.sleep(1000);
-        getDriver().findElement(By.cssSelector("a[href='/use-cases']")).click();
+        driver.findElement(By.cssSelector("a[href='/use-cases']")).click();
         Thread.sleep(1000);
     }
 
     @After
     public void quit() {
-        getDriver().quit();
+
+        driver.quit();
     }
 }

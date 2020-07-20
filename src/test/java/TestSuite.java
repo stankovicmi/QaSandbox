@@ -4,11 +4,10 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 
 @Suite.SuiteClasses({
-//        Test3.class,
-        Test2.class,
-//        Test3.class,
-//        Test4.class,
-//        Test5.class
+        RemoveAllTestCases.class,
+        CreateAllTestCases.class,
+        EditAllTestCases.class,
+        RemoveAllEditedTestCases.class
 
 })
 

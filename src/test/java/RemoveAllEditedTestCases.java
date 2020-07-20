@@ -4,23 +4,22 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class Test5 extends CommonTest {
+public class RemoveAllEditedTestCases extends CommonTest {
 
     @Test
-    public void renameEditedCases() throws InterruptedException {
-        removeAllEditedTests("edited");
+    public void removeEditedTestCases() throws InterruptedException {
+        removeAllEditedTestCases("edited");
     }
 
-    public void removeAllEditedTests(String prefix) throws InterruptedException {
-        List<WebElement> listOfElements = getDriver().findElements(By.cssSelector("[href*='/use-cases']"));
+    public void removeAllEditedTestCases(String prefix) throws InterruptedException {
+        List<WebElement> listOfElements = driver.findElements(By.cssSelector("[href*='/use-cases']"));
         int numberOfCases = listOfElements.size();
 
-        for (int i = 0; i < numberOfCases;) {
+        for (int i = 0; i < numberOfCases; ) {
             Thread.sleep(1000);
             boolean isEdited = listOfElements.get(i).getText().contains(prefix + " ");
             Thread.sleep(1000);
             if (isEdited == true) {
-                System.out.println(listOfElements.get(i).getText());
                 Thread.sleep(1000);
                 listOfElements.get(i).click();
                 Thread.sleep(1000);
